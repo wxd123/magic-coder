@@ -13,6 +13,17 @@ license = "MIT"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+
+# 关键：配置空包
+[tool.hatch.build.targets.wheel]
+packages = [
+    "./packages/comment/src/magicc_comment",
+    "./packages/code/src/magicc_code", 
+    "./packages/arch/src/magicc_arch",
+    "./packages/test/src/magicc_test",
+    "./packages/report/src/magicc_report"
+]
+
 [tool.uv.workspace]
 members = [
     "packages/*",
@@ -44,3 +55,9 @@ strict_optional = true
 [tool.pytest.ini_options]
 testpaths = ["tests", "packages/*/tests", "shared/tests"]
 addopts = "-v --cov=magicc --cov-report=html"
+
+[dependency-groups]
+dev = [
+    "build>=1.4.4",
+    "twine>=6.2.0",
+]

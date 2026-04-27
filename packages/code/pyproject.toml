@@ -1,7 +1,7 @@
 [project]
-name = "magicc"
+name = "magicc-code"
 version = "0.1.0"
-description = "Magic Coder - AI-powered code assistant family"
+description = "Magic Code - AI-powered code assistant"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
@@ -13,19 +13,6 @@ license = "MIT"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv.workspace]
-members = [
-    "packages/*",
-    "shared",
-]
-
-[tool.uv.sources]
-magicc-shared = { path = "shared", editable = true }
-magicc-comment = { path = "packages/comment", editable = true }
-magicc-code = { path = "packages/code", editable = true }
-magicc-arch = { path = "packages/arch", editable = true }
-magicc-test = { path = "packages/test", editable = true }
-magicc-report = { path = "packages/report", editable = true }
 
 [tool.ruff]
 line-length = 100
