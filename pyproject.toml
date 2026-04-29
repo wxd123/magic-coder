@@ -8,6 +8,12 @@ authors = [
     {name = "wxd123", email = "wxd123@users.noreply.github.com"},
 ]
 license = "MIT"
+dependencies = [
+    "magicc-shared",
+    "openai>=2.33.0",
+    "psutil>=7.2.2",
+    "pyyaml>=6.0.3",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -31,12 +37,12 @@ members = [
 ]
 
 [tool.uv.sources]
-magicc-shared = { path = "shared", editable = true }
 magicc-comment = { path = "packages/comment", editable = true }
 magicc-code = { path = "packages/code", editable = true }
 magicc-arch = { path = "packages/arch", editable = true }
 magicc-test = { path = "packages/test", editable = true }
 magicc-report = { path = "packages/report", editable = true }
+magicc-shared = { workspace = true, editable = true }
 
 [tool.ruff]
 line-length = 100
