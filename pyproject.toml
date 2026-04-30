@@ -65,5 +65,6 @@ addopts = "-v --cov=magicc --cov-report=html"
 [dependency-groups]
 dev = [
     "build>=1.4.4",
+    "python-docstring-markdown>=0.4.0",
     "twine>=6.2.0",
 ]

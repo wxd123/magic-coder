@@ -1,4 +1,4 @@
-from .client import OllamaClient, create_client, LLMConfig
-from .ollama_manager import OllamaManager
+from .llm_manager import LLMManager
+from .llm_provider import LLMProvider
 
-__all__ = ["OllamaClient", "OllamaManager", "LLMConfig", "create_client"]
+__all__ = ["LLMManager", "LLMProvider"]

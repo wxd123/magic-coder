@@ -1,0 +1,30 @@
+# test comment
+python -m packages.comment.src.magicc_comment.cli.cli   \
+  --config-path /mnt/workspace/py_project/comment-test/config     \
+  --source /mnt/workspace/py_project/comment-test/source/etd-sysman
+
+
+  # 工具安装
+uv add python_docstring_markdown --dev
+
+# 运行命令
+## comment
+python -m python_docstring_markdown ./packages/comment/src/magicc_comment ./docs/api-coder-comment.md
+
+python -m python_docstring_markdown ./packages/comment/src/magicc_comment/command ./docs/api-coder-comment-command.md
+
+python -m python_docstring_markdown ./packages/comment/src/magicc_comment/pipeline ./docs/api-coder-comment-pipeline.md
+
+python -m python_docstring_markdown ./packages/comment/src/magicc_comment/utils ./docs/api-coder-comment-utils.md
+
+
+## shared
+python -m python_docstring_markdown ./shared/src/magicc_shared ./docs/api-coder-shared.md
+
+python -m python_docstring_markdown ./shared/src/magicc_shared/container ./docs/api-coder-shared-container.md
+
+python -m python_docstring_markdown ./shared/src/magicc_shared/core ./docs/api-coder-shared-core.md
+
+python -m python_docstring_markdown ./shared/src/magicc_shared/llm ./docs/api-coder-shared-llm.md
+
+python -m python_docstring_markdown ./shared/src/magicc_shared/utils ./docs/api-coder-shared-utils.md

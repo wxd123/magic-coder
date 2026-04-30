@@ -44,7 +44,7 @@ class ProgressDisplay:
         
         # 构建文件名栏（固定宽度35）
         display_filename = filename if len(filename) <= 33 else filename[:30] + "..."
-        filename_col = f"{display_filename:<35}"
+        filename_col = f"{display_filename:<100}"
         
         # 构建进度栏
         progress_col = f"函数({current_func:>3}/{total_funcs:<3}) 文件({current_file:>3}/{total_files:<3})"
