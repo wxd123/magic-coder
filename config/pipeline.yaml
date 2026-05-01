@@ -1,0 +1,69 @@
+# pipeline.yaml
+name: "comment-generation-pipeline"
+description: "Java 代码注释生成 Pipeline"
+language: "java"
+
+prompts:
+  javadoc:
+    template: |
+      You are a Java code documentation expert.
+      
+      Task: Generate a concise Javadoc comment for the following Java code.
+      
+      Requirements:
+      - Use Javadoc format (/** ... */)
+      - Include @param for each parameter (if method)
+      - Include @return if method returns value
+      - Include @throws if method throws exceptions
+      - Keep description under 3 sentences
+      - Do NOT include the code itself in your response
+      - Output ONLY the Javadoc comment, no explanation
+      
+      Java file: {filename}
+      
+      ```java
+      {code}
+      ```                           # ← 添加闭合的反引号
+      
+      Javadoc comment:              # ← 添加输出提示
+
+# 模型池
+models:
+  qwen_14b:
+    provider: ollama
+    name: qwen2.5-coder:14b
+    temperature: 0.3
+    max_tokens: 500
+
+  qwen_7b:
+    provider: ollama
+    name: qwen2.5-coder:7b
+    temperature: 0.3
+    max_tokens: 500
+    
+  qwen_3b:
+    provider: ollama
+    name: qwen2.5-coder:3b
+    temperature: 0.2
+    max_tokens: 500
+  
+  qwen_1.5b:
+    provider: ollama
+    name: qwen2.5-coder:1.5b
+    temperature: 0.1
+    max_tokens: 500
+
+  qwen_0.5b:
+    provider: ollama
+    name: qwen2.5-coder:0.5b
+    temperature: 0.1
+    max_tokens: 500
+
+# 普通 Pipeline
+pipeline:
+  - command: java:clean
+  - command: java:generate
+    models: ["qwen_0.5b","qwen_1.5b"]
+#   models: ["qwen2.5-coder:0.5b","qwen2.5-coder:1.5b","qwen2.5-coder:3b","qwen2.5-coder:7b","qwen2.5-coder:14b"]
+  - command: java:report
+
